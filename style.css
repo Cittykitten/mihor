@@ -1,0 +1,328 @@
+/* Base Styles */
+:root {
+  --blood-red: #8B0000;
+  --neon-green: #39FF14;
+  --ash-gray: #333;
+}
+
+@font-face {
+  font-family: 'Creepster';
+  src: url('../assets/fonts/Creepster-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ash-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blood-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b0000;
+}
+
+/* Typography */
+.horror-text {
+  font-family: 'Creepster', cursive;
+  color: var(--blood-red);
+  letter-spacing: 1px;
+}
+
+.blood-text {
+  color: var(--blood-red);
+}
+
+/* Sections */
+.fullscreen-section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.chapter-section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.chapter-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.chapter-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chapter-header {
+  margin-bottom: 2rem;
+}
+
+.chapter-number {
+  font-size: 1.5rem;
+}
+
+.chapter-title {
+  font-size: 3rem;
+  margin-top: 0.5rem;
+}
+
+.chapter-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.chapter-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* Intro Section */
+#intro {
+  flex-direction: column;
+  text-align: center;
+}
+
+#main-title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  margin-bottom: 2rem;
+  opacity: 0;
+}
+
+#subtitle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  opacity: 0;
+}
+
+.blood-drip {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  background-color: var(--blood-red);
+  opacity: 0;
+}
+
+.drip-1 { left: 25%; }
+.drip-2 { left: 50%; }
+.drip-3 { left: 75%; }
+
+/* Choices Section */
+#choices {
+  background-image: url(horror-scene-domestic-space\ \(2\).jpg);
+}
+
+#choices::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.choices-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.choices-container h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.choices-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .choices-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.choice-btn {
+  padding: 1.5rem;
+  border: 2px solid var(--blood-red);
+  border-radius: 8px;
+  font-size: 1.5rem;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.choice-btn i {
+  font-size: 2rem;
+}
+
+.choice-btn:hover {
+  background-color: rgba(139, 0, 0, 0.2);
+}
+
+.choice-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#outcome-text {
+  margin-top: 2rem;
+}
+
+.outcome-message {
+  font-size: 2rem;
+  animation: pulse 2s infinite;
+}
+
+/* Ending Section */
+#ending {
+  background-color: #000;
+}
+
+.ending-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#skull-icon {
+  font-size: 5rem;
+  color: var(--blood-red);
+  margin-bottom: 2rem;
+}
+
+.ending-content h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.ending-text {
+  font-size: 1.2rem;
+}
+
+.ending-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* Fog Layers */
+.fog-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.2;
+  background-size: cover;
+}
+
+#fog-layer1 {
+  background-image: url(pexels-rafael-guajardo-194140-604694.jpg);
+  animation: float 60s linear infinite;
+}
+
+#fog-layer2 {
+  background-image: url(dark-style-aokigahara-forest.jpg);
+  animation: float 40s linear infinite reverse;
+}
+
+/* Jump Scare Overlay */
+#jumpscare-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--neon-green);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ghost Follower */
+#ghost {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background-image: url(pexels-rafael-guajardo-194140-604694.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: blur(1px);
+  opacity: 0;
+  z-index: 50;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Animations */
+@keyframes float {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
