@@ -1,4 +1,4 @@
-// Initialize GSAP plugins
+
 gsap.registerPlugin(ScrollTrigger);
 
 // Global animations setup
@@ -247,4 +247,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupChoicesAnimations();
   setupEndingAnimations();
   setTimeout(setupGhostFollower, 5000); // Show ghost after 5 seconds
+
 });
